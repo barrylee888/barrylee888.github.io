@@ -246,6 +246,18 @@ body.nav-highlight-contact .nav a[href="#contact"] {
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: 0.02em;
+  /* Shrink box to text so any UA focus ring cannot span full content width. */
+  display: inline-block;
+  width: max-content;
+  max-width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Decorative H1: no tabindex; kill any remaining focus/paint from UAs or a11y. */
+.hero-title:focus,
+.hero-title:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .hero-gradient {
@@ -281,7 +293,7 @@ body.nav-highlight-contact .nav a[href="#contact"] {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.55rem 0.65rem;
-  margin: 1.35rem 0 0;
+  margin: 1.5rem 0 0;
   padding: 0;
   max-width: 42rem;
   list-style: none;
@@ -301,9 +313,10 @@ body.nav-highlight-contact .nav a[href="#contact"] {
   letter-spacing: 0.04em;
   background: rgba(10, 14, 28, 0.82);
   border: 1px solid rgba(253, 224, 71, 0.42);
+  /* Softer outer glow so it does not read as a \"halo\" under the H1 on narrow viewports. */
   box-shadow:
-    0 0 32px rgba(251, 191, 36, 0.18),
-    0 0 48px rgba(244, 114, 182, 0.08),
+    0 0 10px rgba(251, 191, 36, 0.12),
+    0 0 20px rgba(244, 114, 182, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
